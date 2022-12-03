@@ -37,9 +37,7 @@ public class MovieRepository {
 
     public void mapMovieByDirector(String movie, String director){
         if(movieHashMap.containsKey(movie) && directorHashMap.containsKey(director)){
-            movieHashMap.put(movie, movieHashMap.get(movie));
-            directorHashMap.put(director, directorHashMap.get(director));
-            List<String> newMovies = new ArrayList<String>();
+            List<String> newMovies = new ArrayList<>();
             if(movieDirectorMap.containsKey(director)) newMovies = movieDirectorMap.get(director);
             newMovies.add(movie);
             movieDirectorMap.put(director, newMovies);
