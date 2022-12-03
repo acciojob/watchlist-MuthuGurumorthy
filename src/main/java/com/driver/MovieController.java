@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,6 +26,9 @@ public class MovieController {
         return new ResponseEntity<>("Director added succesfully",HttpStatus.CREATED);
     }
 
+    public ResponseEntity<List<String>> findAllMovies(){
+        return new ResponseEntity<>(movieService.allMovies(),HttpStatus.CREATED);
+    }
     @GetMapping("/get-movie-by-name/{movieName}")
     public ResponseEntity<Movie> getMovieByName(@PathVariable String movieName){
         Movie movie = movieService.findMovie(movieName);
